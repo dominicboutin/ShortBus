@@ -50,7 +50,30 @@ namespace ShortBus
             {
                 var plan = new MediatorPlan<TResponseData>(typeof (IAsyncRequestHandler<,>), "HandleAsync", query.GetType(), _dependencyResolver);
 
+
+                var implementationMethod = plan.HandlerInstance.GetType()
+                    .GetMethod(plan.HandleMethod.Name,
+                        plan.HandleMethod.GetParameters().Select(info => info.ParameterType).ToArray());
+                var interceptors = implementationMethod.GetCustomAttributes()
+                    .Where(attribute => attribute is RequestInterceptAttribute)
+                    .Cast<RequestInterceptAttribute>()
+                    .SelectMany(attribute => attribute.GetInterceptors())
+                    .Select(type => _dependencyResolver.GetInstance(type))
+                    .Cast<RequestInterceptor>()
+                    .ToList();
+               
+
+                foreach (var interceptor in interceptors)
+                {
+                   interceptor.BeforeInvoke(plan.HandleMethod,query,query.GetType());
+                }
+
                 response.Data = await plan.InvokeAsync(query);
+
+                foreach (var interceptor in interceptors)
+                {
+                    interceptor.AfterInvoke(plan.HandleMethod, query, query.GetType(), response.Data);
+                }
             }
             catch (Exception e)
             {
@@ -117,8 +140,9 @@ namespace ShortBus
 
         class MediatorPlan<TResult>
         {
-            readonly MethodInfo HandleMethod;
-            readonly Func<object> HandlerInstanceBuilder;
+            public MethodInfo HandleMethod;
+            public readonly Func<object> HandlerInstanceBuilder;
+            public object HandlerInstance;
 
             public MediatorPlan(Type handlerTypeTemplate, string handlerMethodName, Type messageType, IDependencyResolver dependencyResolver)
             {
@@ -127,6 +151,8 @@ namespace ShortBus
                 HandleMethod = GetHandlerMethod(handlerType, handlerMethodName, messageType);
 
                 HandlerInstanceBuilder = () => dependencyResolver.GetInstance(handlerType);
+
+                HandlerInstance = HandlerInstanceBuilder();
             }
 
             MethodInfo GetHandlerMethod(Type handlerType, string handlerMethodName, Type messageType)
@@ -141,13 +167,15 @@ namespace ShortBus
 
             public TResult Invoke(object message)
             {
-                return (TResult) HandleMethod.Invoke(HandlerInstanceBuilder(), new[] { message });
+                return (TResult) HandleMethod.Invoke(HandlerInstance, new[] { message });
             }
 
             public async Task<TResult> InvokeAsync(object message)
             {
-                return await (Task<TResult>) HandleMethod.Invoke(HandlerInstanceBuilder(), new[] { message });
+                return await (Task<TResult>) HandleMethod.Invoke(HandlerInstance, new[] { message });
             }
         }
+
+
     }
 }
