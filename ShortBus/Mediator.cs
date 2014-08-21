@@ -50,18 +50,21 @@ namespace ShortBus
             {
                 var plan = new MediatorPlan<TResponseData>(typeof (IAsyncRequestHandler<,>), "HandleAsync", query.GetType(), _dependencyResolver);
 
-
                 var implementationMethod = plan.HandlerInstance.GetType()
                     .GetMethod(plan.HandleMethod.Name,
                         plan.HandleMethod.GetParameters().Select(info => info.ParameterType).ToArray());
-                var interceptors = implementationMethod.GetCustomAttributes()
-                    .Where(attribute => attribute is RequestInterceptAttribute)
-                    .Cast<RequestInterceptAttribute>()
-                    .SelectMany(attribute => attribute.GetInterceptors())
-                    .Select(type => _dependencyResolver.GetInstance(type))
-                    .Cast<RequestInterceptor>()
-                    .ToList();
-               
+
+                var interceptors = new List<RequestInterceptor>();
+                foreach (var attribute in implementationMethod.GetCustomAttributes())
+                {
+                    if (!(attribute is RequestInterceptAttribute)) continue;
+                    foreach (var interceptor in ((RequestInterceptAttribute) attribute).GetInterceptors())
+                    {
+                        var requestInterceptor = (RequestInterceptor)_dependencyResolver.GetInstance(interceptor);
+                        requestInterceptor.RequestInterceptAttribute = (RequestInterceptAttribute)attribute;
+                        interceptors.Add(requestInterceptor);
+                    }
+                }
 
                 foreach (var interceptor in interceptors)
                 {
