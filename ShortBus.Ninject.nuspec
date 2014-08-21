@@ -14,8 +14,8 @@
     <summary>ShortBus is an in-process mediator with low-friction API</summary>
     <copyright>Copyright Matt Hinze 2013</copyright>
     <dependencies>
-        <dependency id="ShortBus.Markers" version="3.0.0" />
-		<dependency id="ShortBus" version="3.0.0" />
+        <dependency id="ShortBus.Markers" version="4.0.0" />
+		<dependency id="ShortBus" version="4.0.0" />
     </dependencies>
   </metadata>
     <files>
