@@ -24,6 +24,27 @@ namespace ShortBus
             _dependencyResolver = dependencyResolver;
         }
 
+        private List<RequestInterceptor> GetRequestInterceptors<TResponseData>(MediatorPlan<TResponseData> plan)
+        {
+            var implementationMethod = plan.HandlerInstance.GetType()
+                  .GetMethod(plan.HandleMethod.Name,
+                      plan.HandleMethod.GetParameters().Select(info => info.ParameterType).ToArray());
+
+            var interceptors = new List<RequestInterceptor>();
+            foreach (var attribute in implementationMethod.GetCustomAttributes())
+            {
+                if (!(attribute is RequestInterceptAttribute)) continue;
+                foreach (var interceptor in ((RequestInterceptAttribute)attribute).GetInterceptors())
+                {
+                    var requestInterceptor = (RequestInterceptor)_dependencyResolver.GetInstance(interceptor);
+                    requestInterceptor.RequestInterceptAttribute = (RequestInterceptAttribute)attribute;
+                    interceptors.Add(requestInterceptor);
+                }
+            }
+
+            return interceptors;
+        }
+
         public virtual Response<TResponseData> Request<TResponseData>(IRequest<TResponseData> request)
         {
             var response = new Response<TResponseData>();
@@ -32,7 +53,19 @@ namespace ShortBus
             {
                 var plan = new MediatorPlan<TResponseData>(typeof (IRequestHandler<,>), "Handle", request.GetType(), _dependencyResolver);
 
+                var interceptors = GetRequestInterceptors(plan);
+
+                foreach (var interceptor in interceptors)
+                {
+                    interceptor.BeforeInvoke(plan.HandleMethod, request, request.GetType());
+                }
+
                 response.Data = plan.Invoke(request);
+
+                foreach (var interceptor in interceptors)
+                {
+                    interceptor.AfterInvoke(plan.HandleMethod, request, request.GetType(), response.Data);
+                }
             }
             catch (Exception e)
             {
@@ -50,32 +83,18 @@ namespace ShortBus
             {
                 var plan = new MediatorPlan<TResponseData>(typeof (IAsyncRequestHandler<,>), "HandleAsync", query.GetType(), _dependencyResolver);
 
-                var implementationMethod = plan.HandlerInstance.GetType()
-                    .GetMethod(plan.HandleMethod.Name,
-                        plan.HandleMethod.GetParameters().Select(info => info.ParameterType).ToArray());
-
-                var interceptors = new List<RequestInterceptor>();
-                foreach (var attribute in implementationMethod.GetCustomAttributes())
-                {
-                    if (!(attribute is RequestInterceptAttribute)) continue;
-                    foreach (var interceptor in ((RequestInterceptAttribute) attribute).GetInterceptors())
-                    {
-                        var requestInterceptor = (RequestInterceptor)_dependencyResolver.GetInstance(interceptor);
-                        requestInterceptor.RequestInterceptAttribute = (RequestInterceptAttribute)attribute;
-                        interceptors.Add(requestInterceptor);
-                    }
-                }
+                var interceptors = GetRequestInterceptors(plan);
 
                 foreach (var interceptor in interceptors)
                 {
-                   interceptor.BeforeInvoke(plan.HandleMethod,query,query.GetType());
+                   await interceptor.BeforeInvokeAsync(plan.HandleMethod,query,query.GetType());
                 }
 
                 response.Data = await plan.InvokeAsync(query);
 
                 foreach (var interceptor in interceptors)
                 {
-                    interceptor.AfterInvoke(plan.HandleMethod, query, query.GetType(), response.Data);
+                    await interceptor.AfterInvokeAsync(plan.HandleMethod, query, query.GetType(), response.Data);
                 }
             }
             catch (Exception e)

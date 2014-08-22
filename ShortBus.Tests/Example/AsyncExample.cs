@@ -1,4 +1,6 @@
-﻿namespace ShortBus.Tests.Example
+﻿using ShortBus.Tests.Interceptors;
+
+namespace ShortBus.Tests.Example
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -62,6 +64,7 @@
 
     public class ExternalResourceHandler : IAsyncRequestHandler<ExternalResourceQuery, string>
     {
+        [ShortBusAT("test")]
         public Task<string> HandleAsync(ExternalResourceQuery request)
         {
             return Task.FromResult("success");
