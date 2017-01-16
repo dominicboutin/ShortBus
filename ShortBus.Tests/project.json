@@ -1,0 +1,14 @@
+﻿{
+  "dependencies": {
+    "ShortBus.Autofac": "4.5-*",
+    "ShortBus.Ninject": "4.5-*",
+    "ShortBus.StructureMap": "4.5-*",
+    "ShortBus.Unity": "4.5-*",
+    "ShortBus.Windsor": "4.5-*",
+    "NUnit": "3.6.0"
+  },
+
+  "frameworks": {
+    "net45": {}
+  }
+}

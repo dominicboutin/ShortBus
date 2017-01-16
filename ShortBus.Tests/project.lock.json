@@ -1,0 +1,362 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "Autofac/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Autofac.dll": {}
+        }
+      },
+      "Castle.Core/3.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Castle.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Castle.Core.dll": {}
+        }
+      },
+      "Castle.Windsor/3.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "3.2.0"
+        },
+        "frameworkAssemblies": [
+          "System.Core",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net45/Castle.Windsor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Castle.Windsor.dll": {}
+        }
+      },
+      "Ninject/4.0.0-beta-0134": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Ninject.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Ninject.dll": {}
+        }
+      },
+      "NUnit/3.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        }
+      },
+      "structuremap/2.6.3": {
+        "type": "package",
+        "compile": {
+          "lib/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/StructureMap.dll": {}
+        }
+      },
+      "Unity/3.0.1304.1": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/Microsoft.Practices.Unity.Configuration.dll": {},
+          "lib/Net45/Microsoft.Practices.Unity.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/Microsoft.Practices.Unity.Configuration.dll": {},
+          "lib/Net45/Microsoft.Practices.Unity.dll": {}
+        }
+      },
+      "ShortBus/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "ShortBus.Markers": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.dll": {}
+        }
+      },
+      "ShortBus.Autofac/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "Autofac": "3.1.5",
+          "ShortBus": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.Autofac.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Autofac.dll": {}
+        }
+      },
+      "ShortBus.Markers/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "compile": {
+          "net45/ShortBus.Markers.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Markers.dll": {}
+        }
+      },
+      "ShortBus.Ninject/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "Ninject": "4.0.0-beta-0134",
+          "ShortBus": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.Ninject.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Ninject.dll": {}
+        }
+      },
+      "ShortBus.StructureMap/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "ShortBus": "4.5.0",
+          "structuremap": "2.6.3"
+        },
+        "compile": {
+          "net45/ShortBus.StructureMap.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.StructureMap.dll": {}
+        }
+      },
+      "ShortBus.Unity/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "ShortBus": "4.5.0",
+          "Unity": "3.0.1304.1"
+        },
+        "compile": {
+          "net45/ShortBus.Unity.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Unity.dll": {}
+        }
+      },
+      "ShortBus.Windsor/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "Castle.Windsor": "3.2.1",
+          "ShortBus": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.Windsor.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Windsor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Autofac/3.1.5": {
+      "sha512": "frkyrThoRejRRMkIfBwR2EbAxkH0LcfcPRhzSI2l9NPQyV58gztlPXkXJBuxGltRzahZnk4xkAk3nkZWZtdb1A==",
+      "type": "package",
+      "path": "Autofac/3.1.5",
+      "files": [
+        "Autofac.3.1.5.nupkg.sha512",
+        "Autofac.nuspec",
+        "lib/net40/Autofac.dll",
+        "lib/net40/Autofac.xml",
+        "lib/portable-win+net40+sl50+wp8/Autofac.dll",
+        "lib/portable-win+net40+sl50+wp8/Autofac.xml"
+      ]
+    },
+    "Castle.Core/3.2.0": {
+      "sha512": "Ht9+voegMLDLfGwHIpDjP9deFeVlSGi2USLGGLRl32IgkcKxUZUAdXV2OLPYdXrlYqbfohFUmBIcL1y0oWIhtg==",
+      "type": "package",
+      "path": "Castle.Core/3.2.0",
+      "files": [
+        "ASL - Apache Software Foundation License.txt",
+        "BreakingChanges.txt",
+        "Castle.Core.3.2.0.nupkg.sha512",
+        "Castle.Core.nuspec",
+        "Changes.txt",
+        "License.txt",
+        "lib/net35/Castle.Core.dll",
+        "lib/net35/Castle.Core.xml",
+        "lib/net40-client/Castle.Core.dll",
+        "lib/net40-client/Castle.Core.xml",
+        "lib/net45/Castle.Core.dll",
+        "lib/net45/Castle.Core.xml",
+        "lib/sl4/Castle.Core.dll",
+        "lib/sl4/Castle.Core.xml",
+        "lib/sl5/Castle.Core.dll",
+        "lib/sl5/Castle.Core.xml",
+        "readme.txt"
+      ]
+    },
+    "Castle.Windsor/3.2.1": {
+      "sha512": "pTt0H5k1Li5AGvWHc7xDHABf0M9PMNjDeaiGNFF8ltxYr3oOcI6xEYMeuP6gipHJChN43rAYni3hG+IcaSmitg==",
+      "type": "package",
+      "path": "Castle.Windsor/3.2.1",
+      "files": [
+        "ASL - Apache Software Foundation License.txt",
+        "BreakingChanges.txt",
+        "Castle.Windsor.3.2.1.nupkg.sha512",
+        "Castle.Windsor.nuspec",
+        "Changes.txt",
+        "License.txt",
+        "lib/net35/Castle.Windsor.dll",
+        "lib/net35/Castle.Windsor.xml",
+        "lib/net40-client/Castle.Windsor.dll",
+        "lib/net40-client/Castle.Windsor.xml",
+        "lib/net40/Castle.Windsor.dll",
+        "lib/net40/Castle.Windsor.xml",
+        "lib/net45/Castle.Windsor.dll",
+        "lib/net45/Castle.Windsor.xml",
+        "lib/sl4/Castle.Windsor.dll",
+        "lib/sl4/Castle.Windsor.xml",
+        "lib/sl5/Castle.Windsor.dll",
+        "lib/sl5/Castle.Windsor.xml",
+        "readme.txt"
+      ]
+    },
+    "Ninject/4.0.0-beta-0134": {
+      "sha512": "ck28GaeVLepLigzWVq7rxS3NeXBXAGLeNnAGuuSH8fcsMBWOOHv1mKnpkySnSlA3w6SqF1nE4PCD5f83Lc9s2w==",
+      "type": "package",
+      "path": "Ninject/4.0.0-beta-0134",
+      "files": [
+        "Ninject.4.0.0-beta-0134.nupkg.sha512",
+        "Ninject.nuspec",
+        "lib/net45/Ninject.dll",
+        "lib/net45/Ninject.xml",
+        "lib/netstandard1.3/Ninject.dll",
+        "lib/netstandard1.3/Ninject.xml",
+        "lib/netstandard1.5/Ninject.dll",
+        "lib/netstandard1.5/Ninject.xml"
+      ]
+    },
+    "NUnit/3.6.0": {
+      "sha512": "mqJP3DI3mE9YSx0o7R5loyIm0NnLJLSl2lmXn84gSkOmLWzlbrxS0oW/cCZF25tB+6Anday/mbkRUXmdvEvSCg==",
+      "type": "package",
+      "path": "NUnit/3.6.0",
+      "files": [
+        "CHANGES.txt",
+        "LICENSE.txt",
+        "NOTICES.txt",
+        "NUnit.3.6.0.nupkg.sha512",
+        "NUnit.nuspec",
+        "lib/MonoAndroid/nunit.framework.dll",
+        "lib/MonoAndroid/nunit.framework.xml",
+        "lib/Xamarin.iOS10/nunit.framework.dll",
+        "lib/Xamarin.iOS10/nunit.framework.xml",
+        "lib/net20/NUnit.System.Linq.dll",
+        "lib/net20/nunit.framework.dll",
+        "lib/net20/nunit.framework.xml",
+        "lib/net35/nunit.framework.dll",
+        "lib/net35/nunit.framework.xml",
+        "lib/net40/nunit.framework.dll",
+        "lib/net40/nunit.framework.xml",
+        "lib/net45/nunit.framework.dll",
+        "lib/net45/nunit.framework.xml",
+        "lib/netstandard1.6/nunit.framework.dll",
+        "lib/netstandard1.6/nunit.framework.xml",
+        "lib/portable-net45+win8+wp8+wpa81/nunit.framework.dll",
+        "lib/portable-net45+win8+wp8+wpa81/nunit.framework.xml"
+      ]
+    },
+    "structuremap/2.6.3": {
+      "sha512": "mmCfIMjnc9ZGLcUqaa9XQWJOwmZyLKuOMEAt8MvPF9KBvVsA4aEkqt7iB04hJrVlfwDDUkKkCqcbjVfNDPW2HQ==",
+      "type": "package",
+      "path": "structuremap/2.6.3",
+      "files": [
+        "lib/StructureMap.XML",
+        "lib/StructureMap.dll",
+        "lib/StructureMap.pdb",
+        "structuremap.2.6.3.nupkg.sha512",
+        "structuremap.nuspec"
+      ]
+    },
+    "Unity/3.0.1304.1": {
+      "sha512": "+/1nhoAJOcL4iNo2NfObwy+WrqJhPM6fCLCI/6ETFpDl5y4sqO749LO2yhlY9UCJZz+298oFhQanhXnmYmZgoA==",
+      "type": "package",
+      "path": "Unity/3.0.1304.1",
+      "files": [
+        "Unity.3.0.1304.1.nupkg.sha512",
+        "Unity.nuspec",
+        "UnityConfiguration30.xsd",
+        "lib/Net45/Microsoft.Practices.Unity.Configuration.dll",
+        "lib/Net45/Microsoft.Practices.Unity.Configuration.xml",
+        "lib/Net45/Microsoft.Practices.Unity.dll",
+        "lib/Net45/Microsoft.Practices.Unity.xml",
+        "lib/NetCore45/Microsoft.Practices.Unity.NetCore.dll",
+        "lib/NetCore45/Microsoft.Practices.Unity.NetCore.pri",
+        "lib/NetCore45/Microsoft.Practices.Unity.NetCore.xml",
+        "lib/wp8/Microsoft.Practices.Unity.WindowsPhone.dll",
+        "lib/wp8/Microsoft.Practices.Unity.WindowsPhone.xml",
+        "tools/install.ps1"
+      ]
+    },
+    "ShortBus/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus/project.json",
+      "msbuildProject": "../ShortBus/ShortBus.xproj"
+    },
+    "ShortBus.Autofac/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Autofac/project.json",
+      "msbuildProject": "../ShortBus.Autofac/ShortBus.Autofac.xproj"
+    },
+    "ShortBus.Markers/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Markers/project.json",
+      "msbuildProject": "../ShortBus.Markers/ShortBus.Markers.xproj"
+    },
+    "ShortBus.Ninject/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Ninject/project.json",
+      "msbuildProject": "../ShortBus.Ninject/ShortBus.Ninject.xproj"
+    },
+    "ShortBus.StructureMap/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.StructureMap/project.json",
+      "msbuildProject": "../ShortBus.StructureMap/ShortBus.StructureMap.xproj"
+    },
+    "ShortBus.Unity/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Unity/project.json",
+      "msbuildProject": "../ShortBus.Unity/ShortBus.Unity.xproj"
+    },
+    "ShortBus.Windsor/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Windsor/project.json",
+      "msbuildProject": "../ShortBus.Windsor/ShortBus.Windsor.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "NUnit >= 3.6.0",
+      "ShortBus.Autofac >= 4.5.0-*",
+      "ShortBus.Ninject >= 4.5.0-*",
+      "ShortBus.StructureMap >= 4.5.0-*",
+      "ShortBus.Unity >= 4.5.0-*",
+      "ShortBus.Windsor >= 4.5.0-*"
+    ],
+    ".NETFramework,Version=v4.5": []
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}

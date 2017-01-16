@@ -26,7 +26,7 @@ namespace ShortBus
 
         private List<RequestInterceptor> GetRequestInterceptors<TResponseData>(MediatorPlan<TResponseData> plan)
         {
-            var implementationMethod = plan.HandlerInstance.GetType()
+            var implementationMethod = plan.HandlerInstance.GetType().GetTypeInfo()
                   .GetMethod(plan.HandleMethod.Name,
                       plan.HandleMethod.GetParameters().Select(info => info.ParameterType).ToArray());
 
@@ -179,12 +179,9 @@ namespace ShortBus
 
             MethodInfo GetHandlerMethod(Type handlerType, string handlerMethodName, Type messageType)
             {
-                return handlerType
+                return handlerType.GetTypeInfo()
                     .GetMethod(handlerMethodName,
-                        BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod,
-                        null, CallingConventions.HasThis,
-                        new[] { messageType },
-                        null);
+                        BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod);
             }
 
             public TResult Invoke(object message)

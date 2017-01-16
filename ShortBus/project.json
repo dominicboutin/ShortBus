@@ -1,0 +1,36 @@
+{
+  "title": "ShortBus",
+  "description": "ShortBus is an in-process mediator with low-friction API",
+  "copyright": "Copyright Matt Hinze 2013",
+  "version": "4.5-*",
+  "authors": [ "ShortBus community" ],
+  "packOptions": {
+    "owners": [ "mhinze" ],
+    "licenseUrl": "https://github.com/mhinze/ShortBus/blob/master/LICENSE.md",
+    "projectUrl": "https://github.com/mhinze/ShortBus",
+    "iconUrl": "https://github.com/mhinze/ShortBus/raw/master/sb.png",
+    "requireLicenseAcceptance": false,
+    "summary": "ShortBus is an in-process mediator with low-friction API"
+  },
+
+  "dependencies": {
+    "ShortBus.Markers": "4.5-*"
+  },
+
+  "frameworks": {
+    "net45": {},
+    "netstandard1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
+    }
+  },
+  "configurations": {
+    "Release": {
+      "buildOptions": {
+        "optimize": true,
+        "platform": "anycpu"
+      }
+    }
+  }
+}

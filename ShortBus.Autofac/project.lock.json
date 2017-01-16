@@ -1,0 +1,74 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "Autofac/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Autofac.dll": {}
+        }
+      },
+      "ShortBus/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "ShortBus.Markers": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.dll": {}
+        }
+      },
+      "ShortBus.Markers/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "compile": {
+          "net45/ShortBus.Markers.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Markers.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Autofac/3.1.5": {
+      "sha512": "frkyrThoRejRRMkIfBwR2EbAxkH0LcfcPRhzSI2l9NPQyV58gztlPXkXJBuxGltRzahZnk4xkAk3nkZWZtdb1A==",
+      "type": "package",
+      "path": "Autofac/3.1.5",
+      "files": [
+        "Autofac.3.1.5.nupkg.sha512",
+        "Autofac.nuspec",
+        "lib/net40/Autofac.dll",
+        "lib/net40/Autofac.xml",
+        "lib/portable-win+net40+sl50+wp8/Autofac.dll",
+        "lib/portable-win+net40+sl50+wp8/Autofac.xml"
+      ]
+    },
+    "ShortBus/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus/project.json",
+      "msbuildProject": "../ShortBus/ShortBus.xproj"
+    },
+    "ShortBus.Markers/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Markers/project.json",
+      "msbuildProject": "../ShortBus.Markers/ShortBus.Markers.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Autofac >= 3.1.5",
+      "ShortBus >= 4.5.0-*"
+    ],
+    ".NETFramework,Version=v4.5": []
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}

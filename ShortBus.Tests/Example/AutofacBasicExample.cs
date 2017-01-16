@@ -5,6 +5,7 @@ using Autofac;
 using Autofac.Features.Variance;
 using NUnit.Framework;
 using ShortBus.Autofac;
+using ShortBus.Tests.Interceptors;
 
 namespace ShortBus.Tests.Example
 {
@@ -37,6 +38,10 @@ namespace ShortBus.Tests.Example
             // since that scope doesn't exist at the root level.
             builder.RegisterType<AutofacDependencyResolver>()
                 .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<TestInterceptor>()
+                .AsSelf()
                 .InstancePerLifetimeScope();
 
             RootScope = builder.Build();

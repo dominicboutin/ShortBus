@@ -1,0 +1,83 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "Unity/3.0.1304.1": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/Microsoft.Practices.Unity.Configuration.dll": {},
+          "lib/Net45/Microsoft.Practices.Unity.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/Microsoft.Practices.Unity.Configuration.dll": {},
+          "lib/Net45/Microsoft.Practices.Unity.dll": {}
+        }
+      },
+      "ShortBus/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "ShortBus.Markers": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.dll": {}
+        }
+      },
+      "ShortBus.Markers/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "compile": {
+          "net45/ShortBus.Markers.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Markers.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Unity/3.0.1304.1": {
+      "sha512": "+/1nhoAJOcL4iNo2NfObwy+WrqJhPM6fCLCI/6ETFpDl5y4sqO749LO2yhlY9UCJZz+298oFhQanhXnmYmZgoA==",
+      "type": "package",
+      "path": "Unity/3.0.1304.1",
+      "files": [
+        "Unity.3.0.1304.1.nupkg.sha512",
+        "Unity.nuspec",
+        "UnityConfiguration30.xsd",
+        "lib/Net45/Microsoft.Practices.Unity.Configuration.dll",
+        "lib/Net45/Microsoft.Practices.Unity.Configuration.xml",
+        "lib/Net45/Microsoft.Practices.Unity.dll",
+        "lib/Net45/Microsoft.Practices.Unity.xml",
+        "lib/NetCore45/Microsoft.Practices.Unity.NetCore.dll",
+        "lib/NetCore45/Microsoft.Practices.Unity.NetCore.pri",
+        "lib/NetCore45/Microsoft.Practices.Unity.NetCore.xml",
+        "lib/wp8/Microsoft.Practices.Unity.WindowsPhone.dll",
+        "lib/wp8/Microsoft.Practices.Unity.WindowsPhone.xml",
+        "tools/install.ps1"
+      ]
+    },
+    "ShortBus/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus/project.json",
+      "msbuildProject": "../ShortBus/ShortBus.xproj"
+    },
+    "ShortBus.Markers/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Markers/project.json",
+      "msbuildProject": "../ShortBus.Markers/ShortBus.Markers.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "ShortBus >= 4.5.0-*",
+      "Unity >= 3.0.1304.1"
+    ],
+    ".NETFramework,Version=v4.5": []
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}

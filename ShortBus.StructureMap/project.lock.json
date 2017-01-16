@@ -1,0 +1,73 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "structuremap/2.6.3": {
+        "type": "package",
+        "compile": {
+          "lib/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/StructureMap.dll": {}
+        }
+      },
+      "ShortBus/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "ShortBus.Markers": "4.5.0"
+        },
+        "compile": {
+          "net45/ShortBus.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.dll": {}
+        }
+      },
+      "ShortBus.Markers/4.5.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "compile": {
+          "net45/ShortBus.Markers.dll": {}
+        },
+        "runtime": {
+          "net45/ShortBus.Markers.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "structuremap/2.6.3": {
+      "sha512": "mmCfIMjnc9ZGLcUqaa9XQWJOwmZyLKuOMEAt8MvPF9KBvVsA4aEkqt7iB04hJrVlfwDDUkKkCqcbjVfNDPW2HQ==",
+      "type": "package",
+      "path": "structuremap/2.6.3",
+      "files": [
+        "lib/StructureMap.XML",
+        "lib/StructureMap.dll",
+        "lib/StructureMap.pdb",
+        "structuremap.2.6.3.nupkg.sha512",
+        "structuremap.nuspec"
+      ]
+    },
+    "ShortBus/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus/project.json",
+      "msbuildProject": "../ShortBus/ShortBus.xproj"
+    },
+    "ShortBus.Markers/4.5.0": {
+      "type": "project",
+      "path": "../ShortBus.Markers/project.json",
+      "msbuildProject": "../ShortBus.Markers/ShortBus.Markers.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "ShortBus >= 4.5.0-*",
+      "structuremap >= 2.6.3"
+    ],
+    ".NETFramework,Version=v4.5": []
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}
